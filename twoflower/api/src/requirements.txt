@@ -1,3 +1,4 @@
 watchdog
+requests
 Flask
 flask-cors

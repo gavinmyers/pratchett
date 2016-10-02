@@ -1,3 +1,4 @@
-docker build -t twoflower-ui .   
+docker build -t twoflowerui .   
 
-docker run -it -p 5000:5000 twoflower-ui /deployment/env/bin/python /deployment/app.py
+docker run --net=twoflower -it -p 127.0.0.1:5001:5001 twoflowerui 
+#docker run -it -p 127.0.0.1:5001:5001 twoflowerui 

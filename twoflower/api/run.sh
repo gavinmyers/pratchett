@@ -1,3 +1,4 @@
-docker build -t twoflower-api .   
+docker build -t twoflowerapi .   
 
-docker run -it -p 5000:5000 twoflower-api /deployment/env/bin/python /deployment/app.py
+docker run --net=twoflower -it -p 127.0.0.1:5000:5000 twoflowerapi 
+#docker run -it -p 127.0.0.1:5000:5000 twoflowerapi 
