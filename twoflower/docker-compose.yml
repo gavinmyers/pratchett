@@ -1,10 +1,14 @@
 version: '2'
 services:
   twoflowerui:
-    build: .
+    image: twoflowerui 
     ports:
      - "5001:5001"
     depends_on:
      - twoflowerapi 
   twoflowerapi:
     image: twoflowerapi 
+    depends_on:
+     - redis
+  redis:
+    image: redis
