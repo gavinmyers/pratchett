@@ -4,12 +4,8 @@ import requests
 app = Flask(__name__)
 
 @app.route("/version")
-def version():
-  return "1.2.3" 
-
-@app.route("/test")
 def test():
-  r = requests.get('http://twoflowerapi:5000')
+  r = requests.get('http://twoflowerapi:5000/version')
   return r.text
 
 @app.route("/")
