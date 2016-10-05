@@ -3,11 +3,15 @@ import requests, redis
 
 app = Flask(__name__)
 
-@app.route("/")
-def hello():
+@app.route("/version")
+def get_version():
   r = redis.StrictRedis(host='redis', port=6379, db=0)
-  r.set('foo', 'bar')
-  return r.get('foo') 
+  v = r.get('version')
+  if v is None:
+    r.set('version',0)
+  v = int(r.get('version'))
+  r.set('version',v+1)
+  return r.get('version') 
 
 if __name__ == "__main__":
   app.run(debug=True,host='0.0.0.0',port=5000)
