@@ -1,12 +1,18 @@
 from flask import Flask, render_template
 import requests 
+import os
 
 app = Flask(__name__)
 
 @app.route("/version")
-def test():
+def version():
   r = requests.get('http://twoflowerapi:5000/version')
   return r.text
+
+@app.route("/env")
+def env():
+  return os.environ['FOO'] 
+
 
 @app.route("/")
 def index():

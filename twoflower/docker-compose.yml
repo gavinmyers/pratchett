@@ -1,12 +1,16 @@
 version: '2'
 services:
   twoflowerui:
+    env_file:
+      - ui/global.env
     image: twoflowerui 
     ports:
      - "5001:5001"
     depends_on:
      - twoflowerapi 
   twoflowerapi:
+    env_file:
+      - api/global.env
     image: twoflowerapi 
     ports:
      - "5000:5000"
@@ -15,4 +19,6 @@ services:
   redis:
     image: redis
     volumes:
-    - storage/redis:/var/lib/redis
+    - rdb:/var/lib/redis
+volumes:
+  rdb:
