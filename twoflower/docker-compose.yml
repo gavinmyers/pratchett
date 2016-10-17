@@ -16,7 +16,14 @@ services:
      - "5000:5000"
     depends_on:
      - redis
+     - postgres 
+  postgres:
+    image: postgres
+    volumes:
+     - ./postgres:/var/lib/postgresql/data/
+    ports:
+     - "5432:5432"
   redis:
     image: bitnami/redis:latest
     volumes:
-    - ./db:/bitnami/redis
+    - ./redis:/bitnami/redis
