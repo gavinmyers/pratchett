@@ -17,8 +17,6 @@ services:
     depends_on:
      - redis
   redis:
-    image: redis
+    image: bitnami/redis:latest
     volumes:
-    - rdb:/var/lib/redis
-volumes:
-  rdb:
+    - ./db:/bitnami/redis
