@@ -31,18 +31,11 @@ RUN \
 # Define mountable directories.
 VOLUME ["/data"]
 
-# Define working directory.
-WORKDIR /data
-
-
-COPY redis.conf /etc/conf/redis.conf 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
+
 COPY src /src
 WORKDIR /src
 RUN pip install -r requirements.txt
-
-#CMD python main.py && redis-server /etc/redis/redis.conf
-#CMD redis-server /etc/redis/redis.conf && python main.py
 
 ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 

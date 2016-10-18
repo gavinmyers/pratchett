@@ -24,6 +24,8 @@ services:
     ports:
      - "5432:5432"
   redis:
+    env_file:
+      - redis/global.env
     image: twoflowerredis 
     volumes:
     - ./storage/redis:/data
