@@ -90,3 +90,6 @@ ENV/
 
 # Redis
 dump.rdb
+
+# Persistence
+storage
