@@ -24,6 +24,6 @@ services:
     ports:
      - "5432:5432"
   redis:
-    image: bitnami/redis:latest
+    image: twoflowerredis 
     volumes:
-    - ./storage/redis:/bitnami/redis
+    - ./storage/redis:/data

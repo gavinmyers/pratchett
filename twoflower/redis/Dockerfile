@@ -35,6 +35,7 @@ VOLUME ["/data"]
 WORKDIR /data
 
 
+COPY redis.conf /etc/conf/redis.conf 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
 COPY src /src
 WORKDIR /src
@@ -44,3 +45,7 @@ RUN pip install -r requirements.txt
 #CMD redis-server /etc/redis/redis.conf && python main.py
 
 ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+
+# Expose ports.
+EXPOSE 6379
+EXPOSE 9999
