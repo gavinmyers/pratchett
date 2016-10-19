@@ -41,4 +41,3 @@ ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.co
 
 # Expose ports.
 EXPOSE 6379
-EXPOSE 9999

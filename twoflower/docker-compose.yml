@@ -5,7 +5,7 @@ services:
       - ui/global.env
     image: twoflowerui 
     ports:
-     - "5001:5001"
+     - "80:80"
     depends_on:
      - twoflowerapi 
   twoflowerapi:
@@ -13,7 +13,7 @@ services:
       - api/global.env
     image: twoflowerapi 
     ports:
-     - "5000:5000"
+     - "8000:80"
     depends_on:
      - redis
      - postgres 
@@ -21,11 +21,13 @@ services:
     image: postgres
     volumes:
      - ./storage/postgres:/var/lib/postgresql/data/
-    ports:
-     - "5432:5432"
+#    ports:
+#     - "5432:5432"
   redis:
     env_file:
       - redis/global.env
     image: twoflowerredis 
     volumes:
     - ./storage/redis:/data
+    ports:
+     - "8888:80"

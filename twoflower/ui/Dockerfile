@@ -18,4 +18,3 @@ RUN pip install -r requirements.txt
 
 ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 
-EXPOSE 5001
