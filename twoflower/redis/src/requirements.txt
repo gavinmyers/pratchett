@@ -1,5 +1,0 @@
-watchdog
-requests
-redis
-Flask
-flask-cors
